@@ -4,7 +4,7 @@ const cors = require('cors')
 const reqip = require('request-ip');
 
 //ROUTES
-const seller = require('./routes//seller')
+const seller = require('./routes/sellerRoute')
 
 const app = express()
 const port = process.env.PORT || 4000
