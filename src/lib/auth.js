@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const con = require('../configdb/condig')
+const con = require('../configdb/config')
 
 const auth = {
     async verifyToken(req,res,next){

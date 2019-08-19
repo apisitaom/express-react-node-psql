@@ -5,7 +5,8 @@ const pool = new Pool({
     database: process.env.DATABASE,
     password: process.env.PASSWORD,
     port: 5432,
-  })
 
-  
-  exports.pool = pool
+  })
+exports.pool = pool
+
+

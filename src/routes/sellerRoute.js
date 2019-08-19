@@ -1,8 +1,11 @@
 const router = require('express').Router()
-
+const db = require('../configdb/config')
+const seller = require('../services/sellerService')
 
 router.get('/get',(req,res)=>{
-    res.send('get start seller routes')
+    res.json(' seller ')
 })
+
+router.get('/getall',seller.seller.getdataall)
 
 module.exports = router
