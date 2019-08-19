@@ -2,14 +2,14 @@ const express = require('express')
 require('dotenv').config()
 const cors = require('cors')
 const reqip = require('request-ip');
+
 //ROUTES
-const seller = require('./routes/index')
+const seller = require('./routes//seller')
 
 const app = express()
 const port = process.env.PORT || 4000
 
 app.use(cors())
-// app.use(express.json)
 app.use((req,res,next)=>{
     const clientIp = reqip.getClientIp(req); 
     let currentDatetime = new Date()
@@ -18,7 +18,8 @@ app.use((req,res,next)=>{
     next()
 })
 
-// app.use('/seller',seller);    //Because it not exports moduls
+//ROUTER
+app.use('/seller',seller);
 
 app.get('/',(req,res)=>{
     res.send('!@%^#!@&#%!@&#%===PROJECT===!*@&(#!@^&#*!@$^!@&*')
