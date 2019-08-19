@@ -2,14 +2,17 @@ const express = require('express')
 require('dotenv').config()
 const cors = require('cors')
 const reqip = require('request-ip');
-
+const bodyParser = require('body-parser')
 //ROUTES
 const seller = require('./routes/sellerRoute')
 
 const app = express()
 const port = process.env.PORT || 4000
-
 app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static('public'));
+
 app.use((req,res,next)=>{
     const clientIp = reqip.getClientIp(req); 
     let currentDatetime = new Date()
@@ -24,6 +27,8 @@ app.use('/seller',seller);
 app.get('/',(req,res)=>{
     res.send('!@%^#!@&#%!@&#%===PROJECT===!*@&(#!@^&#*!@$^!@&*')
 })
+
+app.use('/images', express.static(__dirname + '/public/uploads'));
 
 app.use((err,req,res,next)=>{
     console.log(err)
