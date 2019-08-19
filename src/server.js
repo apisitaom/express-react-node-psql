@@ -6,8 +6,6 @@ const bodyParser = require('body-parser')
 //ROUTES
 const seller = require('./routes/sellerRoute')
 
-const con = require('./configdb/config')
-
 const app = express()
 const port = process.env.PORT || 4000
 app.use(cors())
